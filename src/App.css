@@ -1,0 +1,158 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: grey;
+  color: white;
+  padding-left: 1rem;
+}
+.navHeading{
+  display: flex;
+}
+
+.buttonNav{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+#battle{
+height: 2rem;
+width: 5rem;
+border: none;
+border-radius: 5px;
+background-color: red;
+color: white;
+
+}
+
+#Pokeverse{
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding-right: 1rem;
+  border-right: .25rem solid white;
+  margin-right: 1rem;
+}
+
+#navText{
+  align-self: center;
+  font-size: 1.5rem;
+}
+
+.searchDiv{
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.divLabel{
+  align-self: flex-start;
+}
+
+#search{
+  width: 13rem;
+  align-self: center;
+}
+
+.player{
+  width: inherit;
+  height: inherit;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: scroll;
+}
+
+#deck{
+    padding-top: 1rem;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    
+}
+
+#deckList{
+  width: 100%;
+  height: inherit;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+text-align: center;  
+overflow: scroll;
+}
+
+
+#pokemon{
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+#cardList{
+  /* border: 1px solid black; */
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 15px;
+  overflow: scroll;
+
+}
+
+
+
+.card {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  border-radius: 5px;
+}
+
+
+
+.bttnAdd{
+  width: 5rem;
+  height: 1.5rem;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: green;
+  color: white;
+}
+
+.bttnDelete{
+  width: 5rem;
+  height: 1.5rem;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: red;
+  color: white;
+}
