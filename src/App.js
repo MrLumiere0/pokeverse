@@ -13,15 +13,18 @@ function App() {
     console.log(poke)
 
 if (deck.length < 6){
+
+  if (deck.length >= 1){
+      setBattle(true)
+    }
+
   const updated =  pokemon.filter((i) => i !== poke);
   setPokemon(updated)
 
     setDeck([...deck, poke])
     console.log(deck)
 
-    if (deck.length > 2){
-      setBattle(true)
-    }
+    
 }
 
 
@@ -35,14 +38,16 @@ else {
   function handleDelete (poke){
     console.log(poke)
 
+    if (deck.length <= 3){
+      setBattle(false)
+    }
+
     const updated = deck.filter((i) => i !== poke)
     setDeck(updated)
 
     setPokemon([...pokemon, poke])
 
-    if (deck.length < 2){
-      setBattle(false)
-    }
+
   }
 
   useEffect( () => {
@@ -53,8 +58,29 @@ else {
         const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
         const data = await response.json()
         const list = data.results
+
+        for (const pokemon of list){
+          const url = pokemon.url
+          try{
+            const response = await fetch(url)
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+             pokemon.img = data.sprites.back_default
+             pokemon.hp = data.stats[0].base_stat
+            console.log(pokemon.hp)
+
+          }
+
+          catch (error){
+            console.log("Error", error)
+          }
+         
+        };
         console.log(list)
         setPokemon(data.results)
+
       }
 
       catch (err){
@@ -64,7 +90,7 @@ else {
     }
    
     fetchData()
-  }, [deck, setDeck])
+  }, [setDeck, setPokemon])
 
 
   return (
@@ -94,10 +120,10 @@ else {
             {deck.map( (ele) => {
             return (
               <li className='card' key={ele}  >
-              <img></img>
+              <img src = {ele.img}></img>
               <h3>{ele.name}</h3>
-              <p>Pokemon Attack</p>
-              <p>Level</p>
+              <p>HP: {ele.hp}</p>
+              {/* <p>Level</p> */}
               <button className='bttnDelete' type='button'onClick={()=> handleDelete(ele)} > Delete </button>
           </li>
             )
@@ -110,10 +136,15 @@ else {
         <ul id='cardList'> 
 
             
-          {pokemon.map( (ele) => {
+          {pokemon.map(  (ele) => {
+          
+
+
             return (
               <li className='card' key = {ele} >
-            <h3>{ele.name}</h3>
+             <img src = {ele.img}></img>
+              <h3>{ele.name}</h3>
+              <p>HP: {ele.hp}</p>
             {/* <p>Pokemon Attack</p>
             <p>Level</p> */}
             <button className='bttnAdd' type='button' onClick={()=>handleAdd(ele)}> Add </button>

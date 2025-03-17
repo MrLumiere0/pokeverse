@@ -34,8 +34,20 @@ border: none;
 border-radius: 5px;
 background-color: red;
 color: white;
-
+margin-right: 2rem;
 }
+
+#battle:hover{
+  height: 2rem;
+  width: 5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: red;
+  color: white;
+  margin-right: 2rem;
+  cursor: pointer;
+  }
+
 
 #Pokeverse{
   font-size: 1.5rem;
@@ -155,4 +167,8 @@ overflow: scroll;
   border-radius: 5px;
   background-color: red;
   color: white;
+}
+
+img{
+  max-height: 50px;
 }
