@@ -9,6 +9,7 @@ function App() {
   const [deck, setDeck] = useState([])
   const [battle, setBattle] = useState(false)
 
+
   function handleAdd (poke) {
     console.log(poke)
 
@@ -115,7 +116,7 @@ else {
       <div className='player'>
         <div id='deck'>
           <h3> Player Deck</h3>
-          <ul id='deckList'> 
+          <ul data-testid="deckList" id='deckList'> 
 
             {deck.map( (ele) => {
             return (
@@ -133,7 +134,7 @@ else {
         </div>
         <div id='pokemon'>
         <h3> Pokemon</h3>
-        <ul id='cardList'> 
+        <ul data-testid="pokeList" id='cardList'> 
 
             
           {pokemon.map(  (ele) => {
@@ -147,7 +148,7 @@ else {
               <p>HP: {ele.hp}</p>
             {/* <p>Pokemon Attack</p>
             <p>Level</p> */}
-            <button className='bttnAdd' type='button' onClick={()=>handleAdd(ele)}> Add </button>
+            <button  className='bttnAdd' type='button' onClick={()=>handleAdd(ele)}> Add </button>
         </li>
             )
            })} 
@@ -161,3 +162,4 @@ else {
 }
 
 export default App;
+
